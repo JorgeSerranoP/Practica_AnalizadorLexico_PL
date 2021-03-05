@@ -40,6 +40,14 @@ CommentContent = ( [^*] | \*+[^*/] )*
 <YYINITIAL> {
 
   {Whitespace} { }
+  ","          { return new Symbol(coma); }
+  ";"          { return new Symbol(puntoYComa); }
+  "+"          { return new Symbol(mas); }
+  "-"          { return new Symbol(menos); }
+  "*"          { return new Symbol(poe); }
+  "/"          { return new Symbol(entre); }
+  "("          { return new Symbol(parentesisI); }
+  ")"          { return new Symbol(parentesisD); }
   {Number}     { return new Symbol(numero, Integer.parseInt(yytext()));}
   {Comment}    { }
 }

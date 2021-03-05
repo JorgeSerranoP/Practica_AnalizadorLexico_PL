@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 class Driver {
 	public static void main(String args[]) throws IOException {
-// Entrada de datos: teclado por defecto, fichero si hay argumento
+		// Entrada de datos: teclado por defecto, fichero si hay argumento
 		InputStream dataStream = System.in;
 		if (args.length >= 1) {
 			System.out.println("Leyendo entrada de fichero... ");
@@ -16,10 +16,12 @@ class Driver {
 		} else {
 			System.out.println("Inserta expresiones a reconocer," + " pulsando <ENTER> entre ellas");
 		}
-// Creamos el objeto scanner
+		
+		// Creamos el objeto scanner
 		Lexer scanner = new Lexer(dataStream);
 		ArrayList<Symbol> symbols = new ArrayList<Symbol>();
-// Mientras no alcancemos el fin de la entrada
+		
+		// Mientras no alcancemos el fin de la entrada
 		boolean end = false;
 		while (!end) {
 			try {
