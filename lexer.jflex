@@ -24,10 +24,25 @@ import lex.manual.Symbol;
 
 
 /* Macros para expresiones regulares (para simplificar reglas) */
+Newline    = \r | \n | \r\n
+Whitespace = [ \t\f] | {Newline}
+Number     = [0-9]+
+
+/* comments */
+Comment = {TraditionalComment} | {EndOfLineComment}
+TraditionalComment = "/*" {CommentContent} \*+ "/"
+EndOfLineComment = "//" [^\r\n]* {Newline}
+CommentContent = ( [^*] | \*+[^*/] )*
 
 %%
 
 /* Reglas para detectar los tokens y acciones asociadas */
+<YYINITIAL> {
+
+  {Whitespace} { }
+  {Number}     { return new Symbol(numero, Integer.parseInt(yytext()));}
+  {Comment}    { }
+}
 
 // error fallback
 .|\n 	{System.err.println("warning: Unrecognized character '"
