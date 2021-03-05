@@ -1,0 +1,22 @@
+<project name="LexProject" default="compile" basedir=".">
+	<property name="java" location="src" />
+	<property name="classes" location="bin/cls" />
+	<property name="result" location="bin/jar" />
+	<property name="lib" location="lib" />
+	<property name="tools" location="tools" />
+	<property name="base" location="." />
+	<taskdef name="jflex" classname="JFlex.anttask.JFlexTask" classpath="${tools}/JFlex.jar" />
+	<target name="generate">
+		<jflex file="lexer.jflex" destdir="${java}" />
+	</target>
+	<target name="compile" depends="generate">
+		<mkdir dir="${classes}" />
+		<mkdir dir="${result}" />
+		<javac includeantruntime="false" srcdir="${java}" destdir="${classes}" />
+	</target>
+	<target name="clean">
+		<delete file="${java}/generado/Lexer.java" />
+		<delete dir="${classes}" />
+		<delete dir="${result}" />
+	</target>
+</project>
