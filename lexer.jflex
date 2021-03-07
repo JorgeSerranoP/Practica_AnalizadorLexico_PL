@@ -47,7 +47,6 @@ CommentContent = ( [^*] | \*+[^*/] )*
 /* Reglas para detectar los tokens y acciones asociadas */
 <YYINITIAL> {
   {Whitespace}		{ }
-  ","          		{ return new Symbol(coma, yytext()); }
   ";"          		{ return new Symbol(puntoYComa, yytext()); }
   "+"          		{ return new Symbol(mas, yytext()); }
   "-"          		{ return new Symbol(menos, yytext()); }
