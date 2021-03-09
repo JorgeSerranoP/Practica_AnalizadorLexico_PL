@@ -2,24 +2,34 @@ package lex.manual;
 
 import lex.generado.*;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 class Driver {
 	public static void main(String args[]) throws IOException {
 		// Entrada de datos: teclado por defecto, fichero si hay argumento
-		InputStream dataStream = System.in;
-		if (args.length >= 1) {
-			System.out.println("Leyendo entrada de fichero... ");
-			dataStream = new FileInputStream(args[0]);
-		} else {
-			System.out.println("Inserta expresiones a reconocer," + " pulsando <ENTER> entre ellas");
+		// InputStream dataStream = System.in;
+		FileInputStream dataStream = new FileInputStream(args[0]);
+		System.out.println("Leyendo entrada de fichero... ");
+		InputStreamReader isr = new InputStreamReader(dataStream, "utf8");
+		BufferedReader br = new BufferedReader(isr);
+
+		String linea;
+		int lineas = 0;
+		int caracteres = 0;
+		while ((linea = br.readLine()) != null) {
+			lineas++;
+			caracteres += linea.length();
 		}
+
+		FileInputStream dataStream1 = new FileInputStream(args[0]);
 		// Creamos el objeto scanner
-		Lexer scanner = new Lexer(dataStream);
+		Lexer scanner = new Lexer(dataStream1);
 		ArrayList<Symbol> operadores = new ArrayList<Symbol>();
 		ArrayList<Symbol> separadores = new ArrayList<Symbol>();
 		ArrayList<Symbol> numeros = new ArrayList<Symbol>();
@@ -140,8 +150,11 @@ class Driver {
 			System.out.println();
 		}
 		System.out.println("EXTENSION: ");
-		System.out.print(operadores.size() + separadores.size() + numeros.size() + nombres.size() + emails.size()
-				+ DNIs.size() + matriculas.size() + fechas.size());
+		System.out.println("Numero de lineas: " + lineas);
+		System.out.println("Numero de caracteres: " + caracteres);
+		int simbolos = operadores.size() + separadores.size() + numeros.size()
+		+ nombres.size() + emails.size() + DNIs.size() + matriculas.size() + fechas.size();
+		System.out.println("Numero de simbolos: " + simbolos);
 
 		System.out.println("\n\n -- Bye-bye -- ");
 	}
