@@ -23,7 +23,11 @@ class Driver {
 		ArrayList<Symbol> operadores = new ArrayList<Symbol>();
 		ArrayList<Symbol> separadores = new ArrayList<Symbol>();
 		ArrayList<Symbol> numeros = new ArrayList<Symbol>();
-		ArrayList<Symbol> identificadores = new ArrayList<Symbol>();
+		ArrayList<Symbol> nombres = new ArrayList<Symbol>();
+		ArrayList<Symbol> emails = new ArrayList<Symbol>();
+		ArrayList<Symbol> DNIs = new ArrayList<Symbol>();
+		ArrayList<Symbol> matriculas = new ArrayList<Symbol>();
+		ArrayList<Symbol> fechas = new ArrayList<Symbol>();
 
 		// Mientras no alcancemos el fin de la entrada
 		boolean end = false;
@@ -38,9 +42,16 @@ class Driver {
 					separadores.add(token);
 				} else if (token.type() == 9 || token.type() == 10 || token.type() == 11) {
 					numeros.add(token);
-				} else if (token.type() == 12 || token.type() == 13 || token.type() == 14 || token.type() == 15
-						|| token.type() == 16) {
-					identificadores.add(token);
+				} else if (token.type() == 12) {
+					nombres.add(token);
+				} else if (token.type() == 13) {
+					emails.add(token);
+				} else if (token.type() == 14) {
+					DNIs.add(token);
+				} else if (token.type() == 15) {
+					matriculas.add(token);
+				} else if (token.type() == 16) {
+					fechas.add(token);
 				}
 			} catch (Exception x) {
 				System.out.println("Ups... algo ha ido mal");
@@ -50,7 +61,11 @@ class Driver {
 		operadores.trimToSize();
 		separadores.trimToSize();
 		numeros.trimToSize();
-		identificadores.trimToSize();
+		nombres.trimToSize();
+		emails.trimToSize();
+		DNIs.trimToSize();
+		matriculas.trimToSize();
+		fechas.trimToSize();
 		System.out.println("OPERADORES: ");
 		if (operadores.isEmpty()) {
 			System.out.println("No se han encontrado operadores");
@@ -58,8 +73,8 @@ class Driver {
 			for (int i = 0; i < operadores.size(); i++) {
 				System.out.print(operadores.get(i).value());
 			}
+			System.out.println();
 		}
-		System.out.println();
 		System.out.println("SEPARADORES Y PARENTESIS: : ");
 		if (separadores.isEmpty()) {
 			System.out.println("No se han encontrado separadores ni parentesis");
@@ -67,8 +82,8 @@ class Driver {
 			for (int i = 0; i < separadores.size(); i++) {
 				System.out.print(separadores.get(i).value());
 			}
+			System.out.println();
 		}
-		System.out.println();
 		System.out.println("NUMEROS: ");
 		if (numeros.isEmpty()) {
 			System.out.println("No se han encontrado numeros");
@@ -76,19 +91,57 @@ class Driver {
 			for (int i = 0; i < numeros.size(); i++) {
 				System.out.print(numeros.get(i).value() + " ");
 			}
+			System.out.println();
 		}
-		System.out.println();
 		System.out.println("IDENTIFICADORES: ");
-		if (identificadores.isEmpty()) {
-			System.out.println("No se han encontrado identificadores");
+		System.out.print("Nombre y apellidos: ");
+		if (nombres.isEmpty()) {
+			System.out.println("No se han encontrado nombres");
 		} else {
-			for (int i = 0; i < identificadores.size(); i++) {
-				System.out.print(identificadores.get(i).value());
+			for (int i = 0; i < nombres.size(); i++) {
+				System.out.print(nombres.get(i).value() + ", ");
 			}
+			System.out.println();
 		}
-		System.out.println();
+		System.out.print("Email: ");
+		if (emails.isEmpty()) {
+			System.out.println("No se han encontrado emails");
+		} else {
+			for (int i = 0; i < emails.size(); i++) {
+				System.out.print(emails.get(i).value() + ", ");
+			}
+			System.out.println();
+		}
+		System.out.print("DNI: ");
+		if (DNIs.isEmpty()) {
+			System.out.println("No se han encontrado DNIs");
+		} else {
+			for (int i = 0; i < DNIs.size(); i++) {
+				System.out.print(DNIs.get(i).value() + ", ");
+			}
+			System.out.println();
+		}
+		System.out.print("Matricula: ");
+		if (matriculas.isEmpty()) {
+			System.out.println("No se han encontrado matriculas");
+		} else {
+			for (int i = 0; i < matriculas.size(); i++) {
+				System.out.print(matriculas.get(i).value() + ", ");
+			}
+			System.out.println();
+		}
+		System.out.print("Fecha: ");
+		if (fechas.isEmpty()) {
+			System.out.println("No se han encontrado nombres");
+		} else {
+			for (int i = 0; i < fechas.size(); i++) {
+				System.out.print(fechas.get(i).value() + ", ");
+			}
+			System.out.println();
+		}
 		System.out.println("EXTENSION: ");
-		System.out.print(operadores.size() + separadores.size() + numeros.size() + identificadores.size());
+		System.out.print(operadores.size() + separadores.size() + numeros.size() + nombres.size() + emails.size()
+				+ DNIs.size() + matriculas.size() + fechas.size());
 
 		System.out.println("\n\n -- Bye-bye -- ");
 	}

@@ -18,10 +18,10 @@ public interface SimbolosTerminales {
 	public static final int email = 13;
 	public static final int dni = 14;
 	public static final int matricula = 15;
-	public static final int  fecha = 16;
+	public static final int fecha = 16;
 
 	/* lista de nombres, util para devolver información por pantalla */
 	public static final String[] terminalNames = new String[] { "EOF", "error", "puntoYComa", "mas", "menos", "por",
-			"entre", "parentesisI", "parentesisD", "numero", "numeroReal", "numeroHex", "nombreApellido", "email", "dni", "matricula", "fecha"
-	};
+			"entre", "parentesisI", "parentesisD", "numero", "numeroReal", "numeroHex", "nombreApellido", "email",
+			"dni", "matricula", "fecha" };
 }
