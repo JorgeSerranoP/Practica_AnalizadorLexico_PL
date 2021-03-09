@@ -1,1 +1,25 @@
-27+15;
+/* Esto es un comentario en tres líneas    
+
+*/  
+/* Operandos individuales */  
+5   
+-1   
+/* Con mas de un caracter */  
+1341894   
++1341894   
+-1341894   
+
+//Operaciones
+5*-3-8; /* esta expresion debe resultar -23 */
+10 / 5 * 2; /* esta expresion debe resultar 4 */
+- 3 *4; /* esta expresion debe resultar -12 */
+5*(4-3) * (8 - (4-1)); /* esta expresion debe resultar 25 */
+
+//Operaciones
+5.3+.1+1e-1 /* esta expresion debe resultar 5.5 */
+5.3+0x11 /* esta expresion debe resultar 22.3 */
+6.21+0X1178A
+
+//Identificadores
+Ivan Aguado 100405871@alumnos.uc3m.es 70834316C 5843BTM 26/04/2000
+Jorge Serrano 100405987@alumnos.uc3m.es 03239031X 8771DMT 08/11/2000
